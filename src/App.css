@@ -1,0 +1,14 @@
+@media (max-width: 767px) {
+  /* Mobile styles */
+  .flex.flex-col.gap-y-4.md\:flex-row.md\:gap-x-6.md\:gap-y-0 {
+    flex-direction: column;
+    gap: 10px; /* Adjust the gap as needed */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet styles */
+  .flex.flex-col.gap-y-4.md\:flex-row.md\:gap-x-6.md\:gap-y-0 {
+    gap: 20px; /* Adjust the gap as needed */
+  }
+}
