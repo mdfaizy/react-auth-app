@@ -1,7 +1,6 @@
 import signUpimg from "../../assets/signUpimg.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setSignupData } from "../../slices/authSlice";
@@ -37,8 +36,6 @@ const SignUpFrom = () => {
 
     dispatch(setSignupData(signupData));
     dispatch(signUpFrom(name, username, email, password, navigate));
-
-
     dispatch(setSignupData(signupData));
     // Send OTP to user for verification
     dispatch(sendOtp(formData.email, navigate));
@@ -56,81 +53,12 @@ const SignUpFrom = () => {
 
 
 
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   username: "",
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const { name, username, email, password } = formData;
-
-  // const handleOnChange = (e) => {
-  //   setFormData((prevData) => ({
-  //     ...prevData,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // };
-
-  // const handleOnSubmit = async (e) => {
-  //   e.preventDefault();
-  
-  //   const signupData = {
-  //     name,
-  //     username,
-  //     email,
-  //     password,
-  //   };
-  
-  //   dispatch(setSignupData(signupData));
-  
-  //   try {
-  //     const response = await dispatch(signUpFrom(name, username, email, password, navigate));
-  
-  //     // Check if the signup API response contains a message indicating email verification
-  //     if (response && response.message === 'An Email sent to your account please verify') {
-  //       // Handle the case where the signup is successful, and an email has been sent for verification
-  //       toast.success("Signup successful. An email has been sent to your account for verification.");
-  //       navigate("/login");
-  //     } else {
-  //       // Handle other types of errors
-  //       toast.error("Signup failed. Please try again.");
-  //     }
-      
-  //     // Reset form fields if signup is successful
-  //     setFormData({
-  //       name: "",
-  //       username: "",
-  //       email: "",
-  //       password: "",
-  //     });
-  //   } catch (error) {
-  //     // Handle other types of errors
-  //     console.log("SIGNUP API ERROR:", error);
-  //     toast.error("Signup failed. Please try again.");
-  //   }
-  // };
+ 
   
 
   return (
     <div className="mx-auto flex-wrap bg-neutral-50 grid min-h-[calc(100vh-3.5rem)] place-items-center">
       <div className="mx-auto flex w-11/12 max-w-maxContent flex-col-reverse justify-around  py-12 md:flex-row md:gap-y-0 md:gap-x-1">
-
-{/* <div className="bg-yellow-100   md:h-screen">
-  <div className="relative mx-auto w-11/12 max-w-[450px] md:w-full md:max-w-none md:mx-0 mt-[40%] md:mb-[20%] items-center">
-    <img
-      src={signUpimg}
-      alt="Pattern"
-      width={450}
-              height={604}
-              className="ite"
-              loading="lazy"
-    />
-  </div>
-</div> */}
-
 <div className="bg-amber-200 min-h-screen flex justify-center items-center md:h-screen rounded-lg ">
           <div className="relative mx-auto w-11/12 max-w-[450px] md:w-full md:max-w-none md:mx-0 items-center ">
             <img
@@ -262,7 +190,9 @@ const SignUpFrom = () => {
               </div>
             </fieldset>
             <div className="mb-4 flex gap-2 items-center flex-wrap">
-              <button className="bg-rose-800 p-2.5 px-4 w-1/2 text-white rounded-lg">
+              <button 
+              style={{backgroundColor:"#f43f5e"}}
+              className=" p-2.5 px-4 w-1/2 text-white rounded-lg">
                 Create Account
               </button>
 

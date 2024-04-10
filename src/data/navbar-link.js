@@ -1,4 +1,8 @@
 export const NavbarLinks = [
+  {
+title:"dribbble",
+path:'/',
+  },
     {
       title: "Inspriration",
       path: "/",

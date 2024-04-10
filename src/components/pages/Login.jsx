@@ -78,7 +78,9 @@ const Login = () => {
                 className="w-full rounded-[0.5rem] bg-neutral-200 p-[9px] pr-10 outline-none"
               />
             </label>
-            <button className="bg-rose-800 p-2.5 px-4 w-1/2 text-white rounded-lg mt-5 items-center justify-center">
+            <button 
+            style={{backgroundColor:"#f43f5e"}}
+            className=" p-2.5 px-4 w-1/2 text-white rounded-lg mt-5 items-center justify-center">
               Sign In
             </button>
             <p className="font-bold pt-4">

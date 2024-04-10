@@ -1,13 +1,11 @@
 import { toast } from "react-hot-toast";
 
 import { setLoading, setToken } from "../slices/authSlice";
-// import { resetCart } from "../../slices/cartSlice"
-// import { setUser } from "../slices/profileSlice";
+
 import { apiConnector } from "./apiConnector";
 import { endpoints } from "./api";
-import { setAvatar,setLocation,toggleOption } from "../slices/profileSlice";
 
-const { SIGNUP_API, LOGIN_API ,VERIFY_USER,PROFILE_UPLOAD} = endpoints;
+const { SIGNUP_API, LOGIN_API ,VERIFY_USER} = endpoints;
 
 export const sendOtp = async (email, navigate) => {
   return async (dispatch) => {
@@ -59,7 +57,7 @@ export function signUpFrom(name, username, email, password, navigate) {
       toast.success("Check email verify");
       navigate("/login");
     } catch (error) {
-      // window.alert(error.message);
+      window.alert(error.message);
       console.log("SIGNUP API ERROR............", error);
       toast.error("Send email verifiy failed");
       navigate("/signup");
@@ -150,47 +148,11 @@ export function login(email, password, navigate) {
 
 
 
-export function profile(profile, location,chooseOption, navigate) {
-  return async (dispatch) => {
-    const toastId = toast.loading("Loading...");
-    dispatch(setLoading(true));
-    try {
-      const response = await apiConnector("POST", PROFILE_UPLOAD, {
-        profile, location,chooseOption
-      });
-
-      console.log("PROFILE API RESPONSE:", response);
-
-      if (!response.data.success) {
-        {
-          throw new Error(response.data.message);
-        }
-      }
-
-      toast.success("PROFILE Successful");
-      dispatch(setToken(response.data.token));
-      
-
-      localStorage.setItem("token", JSON.stringify(response.data.token));
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-      navigate("/designerChoose");
-    } catch (error) {
-      console.error("Profile API ERROR:", error);
-      toast.error(error.message || "Profile upload Failed");
-    }
-    dispatch(setLoading(false));
-    toast.dismiss(toastId);
-  };
-}
-
-
 
 
 export function logout(navigate) {
   return (dispatch) => {
     dispatch(setToken(null))
-    // dispatch(setUser(null))
-    // dispatch(resetCart())
     localStorage.removeItem("token")
     localStorage.removeItem("user")
     toast.success("Logged Out")

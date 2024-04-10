@@ -141,10 +141,13 @@ const ProfileUpload = () => {
         <form onSubmit={submitHandler}>
           {step === 1 && (
             <>
-              <div className=" flex gap-x-10 pt-10 flex-wrap ps-10 flex-col-reverse justify-around  py-12 md:flex-row md:gap-y-0 md:gap-x-1">
-                <h1 className="font-bold text-2xl">Add an avatar</h1>
+              <div className="relative  flex gap-x-10 pt-10    ">
 
-                <span className="absolute w-[150px] h-[150px] text-center items-center  rounded-full border-dashed border-2 border-indigo-600 bg-slate-200  mt-10 mr-4">
+              <div className="flex-wrap flex-revice ps-10 flex  md:flex-row md:gap-y-0 md:gap-x-1">
+
+              <h1 className="font-bold text-2xl">Add an avatar</h1>
+
+                <span className="relative w-[150px] h-[150px] text-center items-center  rounded-full border-dashed border-2 border-indigo-600 bg-slate-200  mt-10 -ml-40">
                   <img
                     src={image}
                     alt=""
@@ -177,6 +180,7 @@ const ProfileUpload = () => {
                     <p className="pt-4">Or choose one of our defaults</p>{" "}
                   </div>
                 </div>
+                </div>
               </div>
               <div className="mt-24 flex-wrap ps-10">
                 <h1 className="font-bold text-2xl">Add your location</h1>
@@ -192,7 +196,8 @@ const ProfileUpload = () => {
               <div className="mt-10 flex gap-5 ps-10">
                 <button
                   onClick={nextStep}
-                  className="bg-rose-800 p-2.5 px-4 w-1/3 text-white rounded-lg"
+                  className=" p-2.5 px-4 w-1/3 text-white rounded-lg"
+                style={{backgroundColor:"#f43f5e"}}
                 >
                   Next
                 </button>
@@ -358,7 +363,8 @@ const ProfileUpload = () => {
 
                     <button
                       type="sumbit"
-                      className="bg-rose-800 items-center mx-auto text-center justify-center flex p-2.5 px-4 w-1/4 text-white rounded-lg"
+                      className=" items-center mx-auto text-center justify-center flex p-2.5 px-4 w-1/4 text-white rounded-lg"
+                      style={{backgroundColor:"#f43f5e"}}
                     >
                       Finish
                     </button>

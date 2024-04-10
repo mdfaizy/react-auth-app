@@ -12,9 +12,6 @@ export const FooterLink2 = [
         { title: "Privacy policy", link: "/privacy-policy" },
         { title: "Cookie policy", link: "/cookie-policy" },
         
-        { title: "Mobile Development", link: "/mobile-development" },
-        { title: "Web Design", link: "/web-design" },
-        { title: "Web Development", link: "/web-development" },
       ],
     },
     {
@@ -28,16 +25,7 @@ export const FooterLink2 = [
         
       ],
     },
-    {
-      title: "Design assets",
-      links: [
-          {title: "Dribbble Marketplace", link: "/dribbble-market" },
-          {title: "Creative Market", link: "/creative-market" },
-          {title: "Fontspring", link: "/font-spring" },
-          {title: "Font Squirerrel", link: "/font-squirerrel" },
-         
-      ]
-    },
+    
     {
         title: "Design Resources",
         links: [
@@ -47,6 +35,16 @@ export const FooterLink2 = [
             {title: "Font Squirerrel", link: "/font-squirerrel" },
            
         ]
-      }
+      },
+      {
+        title: "Design assets",
+        links: [
+            {title: "Dribbble Marketplace", link: "/dribbble-market" },
+            {title: "Creative Market", link: "/creative-market" },
+            {title: "Fontspring", link: "/font-spring" },
+            {title: "Font Squirerrel", link: "/font-squirerrel" },
+           
+        ]
+      },
   ];
   
