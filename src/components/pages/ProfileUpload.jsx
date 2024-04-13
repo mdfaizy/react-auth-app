@@ -5,11 +5,12 @@ import { useState } from "react";
 import sharemywork from "../../assets/sharemywork.png";
 import { useSelector } from "react-redux";
 import { SlArrowLeft } from "react-icons/sl";
+import { endpoints } from "../../services/api"
+import axios from 'axios';
 const ProfileUpload = () => {
+  const {PROFILE_UPLOAD} =endpoints;
   const { token } = useSelector((state) => state.auth);
-
   const [step, setStep] = useState(1);
-
   const nextStep = () => {
     setStep(step + 1);
   };
@@ -20,7 +21,6 @@ const ProfileUpload = () => {
     }
   };
   const [isChecked, setIsChecked] = useState(false);
-
   const [image, setImage] = useState("");
   const [formData, setFormData] = useState({
     checkbox1: false,
@@ -101,18 +101,29 @@ const ProfileUpload = () => {
       formDataToSend.append(key, formData[key]);
     }
 
+    // try {
+    //   const response = await axios.post(
+    //     `${PROFILE_UPLOAD}/profile/profile`,
+    //     {
+    //       method: "POST",
+    //       headers: {
+    //         Authorization: `Bearer ${token}`,
+    //       },
+    //       body: formDataToSend,
+    //     }
+    //   );
+
     try {
-      const response = await fetch(
-        "http://localhost:3000/api/v1/profile/profile",
+      const response = await axios.post(
+        `${PROFILE_UPLOAD}/profile/profile`,
+        formDataToSend,
         {
-          method: "POST",
           headers: {
-            Authorization: `Bearer ${token}`,
+            'Authorization': `Bearer ${token}`, 
+            'Content-Type': 'multipart/form-data' 
           },
-          body: formDataToSend,
         }
       );
-
       if (response.ok) {
         const responseData = await response.json();
         console.log(responseData);

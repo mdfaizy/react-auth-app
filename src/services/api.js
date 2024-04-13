@@ -1,5 +1,5 @@
 
-const BASE_URL ="https://dribbble-node.onrender.com/api/v1"
+const BASE_URL="https://dribbble-node-1.onrender.com/api/v1"
 // const BASE_URL="http://localhost:3000/api/v1"
 
 // AUTH ENDPOINTS
@@ -8,4 +8,5 @@ export const endpoints = {
   LOGIN_API: BASE_URL + "/auth/login",
   VERIFY_USER: BASE_URL + "/auth/:id/verify/:token",
   PROFILE_UPLOAD: BASE_URL + "/profile/profile",
+
 }
