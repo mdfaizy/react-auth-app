@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import emailVerifyIcon from "../../assets/emailVerify.png"
+import emailVerifyIcon from "../../assets/emailVerify.png";
 const EmailVerify = () => {
   const [validUrl, setValidUrl] = useState(true);
   const param = useParams();
@@ -10,7 +10,7 @@ const EmailVerify = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/auth/users/${param.id}`
+          `http://localhost:3000/api/v1/auth/user/${param.id}/${param.token}`
         );
 
         console.log(response);
@@ -35,11 +35,7 @@ const EmailVerify = () => {
             Email verified successfully
           </h1>
           <div>
-
-            <img src={emailVerifyIcon} 
-            className="w-20 "
-            />
-
+            <img src={emailVerifyIcon} className="w-20 " />
           </div>
           <Link to="/login">
             <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">

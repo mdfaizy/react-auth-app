@@ -19,13 +19,12 @@ function App() {
         <Route path="/signup" element={<SignUpFrom />} />
         <Route path="/login" element={<Login />} />
         {token === null && (
-         <>
-          <Route path="/users/:id" element={<EmailVerify />} />
-        </>
+          <>
+            <Route path="/user/:id/:token" element={<EmailVerify />} />
+          </>
         )}
         <Route path="/profile" element={<ProfileUpload />} />
         {/* <Route path='/designerChoose' element={<DesignerChoose />} /> */}
-
       </Routes>
       <Footer />
     </>
