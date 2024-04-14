@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import emailVerifyIcon from "../../assets/emailVerify.png";
 const EmailVerify = () => {
+ 
   const [validUrl, setValidUrl] = useState(true);
   const param = useParams();
 
@@ -10,7 +11,7 @@ const EmailVerify = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/auth/user/${param.id}/${param.token}`
+          `https://dribbble-node-1.onrender.com/api/v1/auth/user/${param.id}/${param.token}`
         );
 
         console.log(response);

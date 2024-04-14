@@ -101,7 +101,7 @@ const ProfileDropdown = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/profile/profileId"
+          "https://dribbble-node-1.onrender.com/api/v1/profile/profileId"
         );
         console.log("Profile Images:", response.data.data);
 
