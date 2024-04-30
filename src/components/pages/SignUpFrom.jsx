@@ -6,60 +6,19 @@ import { useNavigate } from "react-router-dom";
 import { setSignupData } from "../../slices/authSlice";
 import { signUpFrom, sendOtp } from "../../services/authApi";
 
-// const SignUpFrom = () => {
-//   const navigate = useNavigate();
-//   const dispatch = useDispatch();
-//   const [formData, setFormData] = useState({
-//     name: "",
-//     userame: "",
-//     email: "",
-//     password: "",
-//   });
-
-//   const { name, username, email, password } = formData;
-
-//   // Handle input fields, when some value changes
-//   const handleOnChange = (e) => {
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [e.target.name]: e.target.value,
-//     }));
-//   };
-
-//   // Handle Form Submission
-//   const handleOnSubmit = async(e) => {
-//     e.preventDefault();
-
-//     const signupData = {
-//       ...formData,
-//     };
-
-//     dispatch(setSignupData(signupData));
-//     dispatch(signUpFrom(name, username, email, password, navigate));
-//     dispatch(setSignupData(signupData));
-//     // Send OTP to user for verification
-//     dispatch(sendOtp(formData.email, navigate));
-
-//     // Reset form fields
-//     setFormData({
-//       name: "",
-//       username: "",
-//       email: "",
-//       password: "",
-//     });
-//   };
 const SignUpFrom = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
-    username: "",
+    userame: "",
     email: "",
     password: "",
   });
 
   const { name, username, email, password } = formData;
 
+  // Handle input fields, when some value changes
   const handleOnChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -67,25 +26,19 @@ const SignUpFrom = () => {
     }));
   };
 
-  const handleOnSubmit = (e) => {
+  // Handle Form Submission
+  const handleOnSubmit = async(e) => {
     e.preventDefault();
 
     const signupData = {
       ...formData,
     };
 
-    dispatch(setSignupData(signupData)); // Dispatch action to update signup data
-
-    // Dispatch async action to sign up user
-    dispatch(signUpFrom(name, username, email, password))
-      .then(() => {
-        // Dispatch async action to send OTP
-        dispatch(sendOtp(email, navigate));
-      })
-      .catch((error) => {
-        // Handle signup error
-        console.error("Error signing up:", error);
-      });
+    dispatch(setSignupData(signupData));
+    dispatch(signUpFrom(name, username, email, password, navigate));
+    dispatch(setSignupData(signupData));
+    // Send OTP to user for verification
+    dispatch(sendOtp(formData.email, navigate));
 
     // Reset form fields
     setFormData({
@@ -95,6 +48,7 @@ const SignUpFrom = () => {
       password: "",
     });
   };
+
   return (
     <div className="mx-auto flex-wrap bg-neutral-50 grid min-h-[calc(100vh-3.5rem)] place-items-center">
       <div className="mx-auto flex w-11/12 max-w-maxContent flex-col-reverse justify-around  py-12 md:flex-row md:gap-y-0 md:gap-x-1">
