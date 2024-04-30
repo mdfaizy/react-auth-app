@@ -43,7 +43,7 @@ export function signUpFrom(name, username, email, password, navigate) {
       });
       console.log(signUpFrom);
       console.log("SIGNUP API RESPONSE............", response.data);
-
+      console.log("token  id",response.data.token,response.data.id )
       if (!response.data.success) {
         throw new Error(response.data.message);
       }
