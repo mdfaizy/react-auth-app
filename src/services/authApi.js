@@ -42,7 +42,7 @@ export function signUpFrom(name, username, email, password, navigate) {
         password,
       });
       console.log(signUpFrom);
-      console.log("SIGNUP API RESPONSE............", response);
+      console.log("SIGNUP API RESPONSE............", response.data);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
