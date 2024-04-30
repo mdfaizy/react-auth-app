@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
@@ -7,7 +7,7 @@ import Login from "./components/pages/Login";
 import ProfileUpload from "./components/pages/ProfileUpload";
 import SignUpFrom from "./components/pages/SignUpFrom";
 import EmailVerify from "./components/pages/EmailVerify";
-import Home from "./home/Home";
+// import Home from "./home/Home";
 function App() {
   const { token } = useSelector((state) => state.auth);
 
@@ -15,7 +15,7 @@ function App() {
     <>
       {token !== null && <Header />}
       <Routes>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/signup" element={<SignUpFrom />} />
         <Route path="/login" element={<Login />} />
         {token === null && (
